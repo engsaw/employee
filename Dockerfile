@@ -1,6 +1,6 @@
 FROM arm32v7/openjdk
 
-ARG APP_NAME="department"
+ARG APP_NAME="employee"
 ARG APP_VERSION="0.0.1-SNAPSHOT"
 ARG JAR_FILE="/target/${APP_NAME}-${APP_VERSION}.jar"
 
