@@ -34,7 +34,7 @@ public class EmployeeService {
         ResponseTemplateVO responseTemplateVO = new ResponseTemplateVO();
         Employee employee = employeeRepositry.findEmployeeById(id);
 
-        Department department = restTemplate.getForObject("http://localhost:8080/departments/" + employee.getId(), Department.class);
+        Department department = restTemplate.getForObject("http://localhost:1002/departments/" + employee.getId(), Department.class);
 
         responseTemplateVO.setDepartment(department);
         responseTemplateVO.setEmployee(employee);
@@ -51,7 +51,7 @@ public class EmployeeService {
 
             ResponseTemplateVO responseTemplateVO = new ResponseTemplateVO();
 
-            Department department = restTemplate.getForObject("http://localhost:8080/departments/" + employee.getId(), Department.class);
+            Department department = restTemplate.getForObject("http://localhost:1002/departments/" + employee.getId(), Department.class);
 
             responseTemplateVO.setDepartment(department);
             responseTemplateVO.setEmployee(employee);
@@ -63,7 +63,7 @@ public class EmployeeService {
     }
 
     public Department findDepartmentById(Employee employee) {
-        Department department = restTemplate.getForObject("http://localhost:8080/departments/" + employee.getId(), Department.class);
+        Department department = restTemplate.getForObject("http://localhost:1002/departments/" + employee.getId(), Department.class);
 
         return department;
     }
