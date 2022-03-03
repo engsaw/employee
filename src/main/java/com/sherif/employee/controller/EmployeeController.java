@@ -23,14 +23,17 @@ public class EmployeeController {
     @PostMapping("/")
     public Employee saveEmployee (@RequestBody Employee employee){
 
-     if (employeeService.findDepartmentById(employee) !=null){
+        return employeeService.saveEmployee(employee);
+
+
+  /*   if (employeeService.findDepartmentById(employee) !=null){
          return employeeService.saveEmployee(employee);
      }
 
      else {
          return null;
 
-     }
+     }*/
     }
 
 
