@@ -4,6 +4,7 @@ package com.sherif.employee.controller;
 import com.sherif.employee.entity.Employee;
 import com.sherif.employee.service.EmployeeService;
 import com.sherif.employee.vo.ResponseTemplateVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController()
 @RequestMapping("/employee")
+@Slf4j
 public class EmployeeController {
 
     @Autowired
@@ -23,17 +25,19 @@ public class EmployeeController {
     @PostMapping("/")
     public Employee saveEmployee (@RequestBody Employee employee){
 
-        return employeeService.saveEmployee(employee);
+      //  return employeeService.saveEmployee(employee);
 
 
-  /*   if (employeeService.findDepartmentById(employee) !=null){
+  if (employeeService.findDepartmentById(employee) !=null){
+      log.info("Done adding new employee :" + employee);
          return employeeService.saveEmployee(employee);
      }
 
      else {
+      log.info("Sorry this department doesn't exist");
          return null;
 
-     }*/
+     }
     }
 
 
@@ -52,5 +56,12 @@ public class EmployeeController {
 
         return employeeService.findAll();
     }
+
+    @DeleteMapping("/")
+    public void deleteAllEmployeeWithDepartment(){
+
+   employeeService.deleteAllEmployees();
+    }
+
 
 }
