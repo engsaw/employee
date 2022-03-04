@@ -17,8 +17,12 @@ import java.util.List;
 @Slf4j
 public class EmployeeController {
 
-    @Autowired
-    EmployeeService employeeService;
+    private final EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+    
 
 
 

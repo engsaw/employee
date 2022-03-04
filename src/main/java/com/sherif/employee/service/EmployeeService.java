@@ -16,10 +16,13 @@ import java.util.List;
 @Slf4j
 public class EmployeeService {
 
-    @Autowired
-    private EmployeeRepositry employeeRepositry;
 
-    @Autowired
+    public EmployeeService(EmployeeRepositry employeeRepositry, RestTemplate restTemplate) {
+        this.employeeRepositry = employeeRepositry;
+        this.restTemplate = restTemplate;
+    }
+
+    private EmployeeRepositry employeeRepositry;
     private RestTemplate restTemplate;
 
 
