@@ -40,7 +40,7 @@ public class EmployeeService {
         Employee employee = employeeRepositry.findEmployeeById(id);
 
         try {
-            Department department = restTemplate.getForObject("http://192.168.2.174:1002/departments/" + employee.getEmployeeDepartment(), Department.class);
+            Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE:1002/departments/" + employee.getEmployeeDepartment(), Department.class);
 
             responseTemplateVO.setDepartment(department);
             responseTemplateVO.setEmployee(employee);
@@ -64,7 +64,7 @@ log.info("We got user" + employee);
 
             ResponseTemplateVO responseTemplateVO = new ResponseTemplateVO();
 
-            Department department = restTemplate.getForObject("http://192.168.2.174:1002/departments/" + employee.getEmployeeDepartment(), Department.class);
+            Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE:1002/departments/" + employee.getEmployeeDepartment(), Department.class);
 
             responseTemplateVO.setDepartment(department);
             responseTemplateVO.setEmployee(employee);
@@ -78,7 +78,7 @@ log.info("We got user" + employee);
     }
 
     public Department findDepartmentById(Employee employee) {
-        Department department = restTemplate.getForObject("http://192.168.2.174:1002/departments/" + employee.getEmployeeDepartment(), Department.class);
+        Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE:1002/departments/" + employee.getEmployeeDepartment(), Department.class);
 
         return department;
     }
